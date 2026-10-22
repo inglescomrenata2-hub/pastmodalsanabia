@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Past Modals — Speaking 2</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.12.1/html2pdf.bundle.min.js"></script>
+<style>
+  :root{--accent:#E24C3F;--accent-bg:#FCE9E7;--ink:#1A1A1A;--muted:#666;}
+  *{box-sizing:border-box;}
+  body{font-family:-apple-system,"Segoe UI",Calibri,Arial,sans-serif;color:var(--ink);background:#fafafa;margin:0;padding:24px 12px 60px;line-height:1.5;}
+  .wrap{max-width:820px;margin:0 auto;background:#fff;padding:36px 40px;border-radius:8px;box-shadow:0 1px 6px rgba(0,0,0,.08);}
+  h1{color:var(--accent);font-size:26px;margin:0 0 6px;}
+  h2{color:var(--accent);font-size:19px;margin:34px 0 12px;border-bottom:2px solid var(--accent-bg);padding-bottom:6px;}
+  .meta{margin:0 0 14px;font-size:14px;}
+  .meta em{color:var(--muted);}
+  .instructions{background:#fff8e6;border-left:4px solid #E8B93A;padding:10px 14px;font-size:14px;font-style:italic;color:#555;}
+  .box{background:var(--accent-bg);border-left:4px solid var(--accent);padding:14px 18px;text-align:center;color:#8A2E23;font-style:italic;font-size:14.5px;}
+  .endings{background:#f6f6f6;border:1px solid #e2e2e2;border-radius:6px;padding:14px 18px;font-size:14.5px;margin-top:10px;}
+  .endings p{margin:6px 0;}
+  table{width:100%;border-collapse:collapse;margin-top:14px;font-size:14.5px;}
+  th{background:var(--ink);color:#fff;text-align:left;padding:8px 12px;}
+  td{padding:8px 12px;border-bottom:1px solid #eee;}
+  select{padding:5px 8px;border:1px solid #ccc;border-radius:4px;font-size:14px;background:#fff;}
+  ol{padding-left:20px;}
+  ol li{margin-bottom:14px;font-size:15px;}
+  input.gap{border:none;border-bottom:2px solid #bbb;background:transparent;font-size:15px;font-family:inherit;padding:2px 4px;width:190px;color:var(--accent);font-weight:600;}
+  input.gap:focus{outline:none;border-bottom-color:var(--accent);}
+  .mc-item{margin-bottom:16px;font-size:15px;}
+  .mc-options{margin-top:4px;padding-left:18px;}
+  .mc-options label{margin-right:18px;font-size:14px;color:#444;cursor:pointer;}
+  input[type=radio]{margin-right:5px;}
+  textarea{width:100%;border:1px solid #ccc;border-radius:6px;padding:12px;font-family:inherit;font-size:14.5px;resize:vertical;}
+  input.long{width:100%;border:none;border-bottom:2px solid #bbb;background:transparent;font-size:14.5px;font-family:inherit;padding:4px 2px;margin:4px 0 10px;}
+  input.long:focus{outline:none;border-bottom-color:var(--accent);}
+  .check-btn{margin-top:14px;background:var(--accent);color:#fff;border:none;padding:9px 18px;border-radius:20px;font-size:13.5px;cursor:pointer;font-weight:600;}
+  .check-btn:hover{background:#c93b2e;}
+  .answers{margin-top:12px;background:#f4f9f4;border-left:4px solid #4a9d5b;padding:12px 16px;font-size:14px;color:#2e5c38;}
+  .hidden{display:none;}
+  .footer-actions{margin-top:40px;text-align:center;}
+  .save-btn{background:#1a7a3c;color:#fff;border:none;padding:12px 26px;border-radius:22px;font-size:15px;cursor:pointer;font-weight:700;box-shadow:0 2px 6px rgba(26,122,60,.35);}
+  .save-btn:hover{background:#146030;}
+  .save-btn:disabled{background:#9bbfa6;cursor:wait;}
+  .save-note{font-size:12.5px;color:#888;margin:10px 0 0;}
+  .pdf-name-row{margin:14px 0;display:flex;gap:10px;justify-content:center;align-items:center;flex-wrap:wrap;}
+  .pdf-name-row input{border:1px solid #ccc;border-radius:6px;padding:8px 10px;font-size:14px;font-family:inherit;width:260px;}
+  .timer{display:flex;align-items:center;gap:14px;margin:12px 0 18px;padding:10px 14px;background:#fafafa;border:1px solid #eee;border-radius:10px;}
+  .timer svg{width:64px;height:64px;flex-shrink:0;}
+  .timer .ring-bg{fill:none;stroke:var(--accent-bg);stroke-width:7;}
+  .timer .ring{fill:none;stroke:var(--accent);stroke-width:7;stroke-linecap:round;transform:rotate(-90deg);transform-origin:50% 50%;transition:stroke-dashoffset 1s linear;}
+  .timer .t-num{font-size:15px;font-weight:700;fill:var(--ink);}
+  .timer .t-btns{display:flex;gap:6px;flex-wrap:wrap;}
+  .timer button{border:1px solid var(--accent);background:#fff;color:var(--accent);border-radius:16px;padding:5px 12px;font-size:12.5px;font-weight:600;cursor:pointer;}
+  .timer button.t-main{background:var(--accent);color:#fff;}
+  .timer.danger .ring{stroke:#c0281b;}
+  .timer.danger svg{animation:pulse 1s ease-in-out infinite;}
+  .timer.done .t-num{fill:#c0281b;}
+  @keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.08);}}
+</style>
+</head>
+<body>
+<div class="wrap" id="pdfContent">
+
+  <h1>Past Modals — Speaking 2</h1>
+  <p class="meta"><strong>Aluno(a):</strong> <span id="studentNameDisplay">___________</span> &nbsp;|&nbsp; <em>Past modal verbs na fala: mysteries, dilemmas, apologies & quick-fire</em></p>
+  <p class="instructions">Preencha aqui mesmo, sem sair da página. Suas respostas ficam salvas automaticamente. No final, clique em "Salvar como PDF".</p>
+
+  <h2>Expressões-alvo</h2>
+  <div class="box">
+    <strong>Deduzir:</strong> must've · might've · may've · can't have · couldn't have<br><br>
+    <strong>Julgar / arrepender:</strong> should've · shouldn't have · could've (and didn't)<br><br>
+    <strong>Imaginar:</strong> I would've… · I wouldn't have… · If I'd been there, I would've…<br><br>
+    <strong>Pra ganhar tempo:</strong> <em>Hmm, good question… · Let me think… · I mean… · Honestly? · To be fair…</em>
+  </div>
+  <p class="instructions" style="margin-top:14px;">Atividade pra fazer em voz alta, na aula. Use os campos só pra anotar palavras-chave, não precisa escrever frases completas. O timer serve pra você falar sem parar até o tempo acabar.</p>
+
+
+  <h2>Parte 1 — Solve the mystery</h2>
+  <p>Leia cada mini-história. Você tem <strong>1 minuto</strong> pra levantar o máximo de hipóteses que conseguir sobre o que aconteceu, usando <em>must've / might've / can't have</em>. No final, diga qual é a sua aposta.</p>
+  <div class="timer no-pdf" data-seconds="60"></div>
+  <p>1. Your client Megan has never missed a Pilates class in two years. This week she didn't show up, didn't text, and her Instagram has been silent for five days.<br>Notas: <input class="long"></p>
+  <p>2. You come home and your front door is unlocked. Nothing is missing, but there's a bouquet of flowers on the kitchen table.<br>Notas: <input class="long"></p>
+  <p>3. Your neighbor, who always complains about noise, knocked on your door last night with a cake and a huge smile.<br>Notas: <input class="long"></p>
+  <p>4. Your Uber driver took a 40-minute route for a trip that usually takes 15, and kept looking in the rearview mirror.<br>Notas: <input class="long"></p>
+  <p>5. Your friend from Brazil posted a photo at the airport with the caption "Never again." 😤<br>Notas: <input class="long"></p>
+  <button class="check-btn no-pdf" onclick="toggle('ans1')">Mostrar respostas</button>
+  <div id="ans1" class="answers hidden">
+    Exemplos de hipóteses:<br>
+    1. She must've gotten sick. / She might've gone on a trip and forgotten to tell you. / She can't have quit — she loves the class!<br>
+    2. My partner must've left them. / Someone might've had a spare key. / It can't have been a burglar — burglars don't bring flowers. 😅<br>
+    3. He must've felt bad about complaining. / He might've won the lottery. / He must've been trying to make peace.<br>
+    4. He must've been lost. / He might've been trying to avoid traffic. / He could've been trying to make more money — he can't have gotten lost for 40 minutes!<br>
+    5. Her flight must've been cancelled. / She might've lost her luggage. / She must've had a terrible layover.
+  </div>
+
+
+  <h2>Parte 2 — What would you have done?</h2>
+  <p>Leia as situações. Diga em voz alta: (a) o que a pessoa <strong>should've / shouldn't have</strong> feito e (b) o que <strong>você would've done</strong> no lugar dela. Fale por pelo menos <strong>1 minuto</strong> em cada uma.</p>
+  <div class="timer no-pdf" data-seconds="60"></div>
+  <p>1. Carla moved to the US with her husband, quit her job in Brazil and didn't learn any English before the move. Now she feels lonely and stuck at home.<br>Notas: <input class="long"></p>
+  <p>2. A Pilates instructor noticed a client was doing an exercise wrong, but didn't say anything because she didn't want to be rude. The client hurt her back.<br>Notas: <input class="long"></p>
+  <p>3. Lucas spent all his savings on a road trip across the US. Now he's back home with no money, but says it was the best month of his life.<br>Notas: <input class="long"></p>
+  <p>4. Your friend took a year off work, but spent most of it scrolling on her phone and feeling guilty about it.<br>Notas: <input class="long"></p>
+  <button class="check-btn no-pdf" onclick="toggle('ans2')">Mostrar respostas</button>
+  <div id="ans2" class="answers hidden">
+    Exemplos:<br>
+    1. She should've taken some English classes before moving. She could've looked for a Brazilian community there. Honestly, I would've joined a gym or a class to meet people.<br>
+    2. She should've corrected her — that's literally her job! She shouldn't have worried about being rude. I would've said something like "Let's try this a little differently."<br>
+    3. He could've saved a little for when he got back… but to be fair, I would've done the same thing!<br>
+    4. She should've made a plan. She shouldn't have been so hard on herself, though — rest is important too. I would've tried to learn something new.
+  </div>
+
+
+  <h2>Parte 3 — Role-play: "I'm so sorry!"</h2>
+  <p>A professora faz o papel da outra pessoa. Você precisa <strong>pedir desculpas e explicar</strong> o que aconteceu, usando <em>I should've… / I shouldn't have… / I could've… / I must've…</em>. A outra pessoa vai reclamar um pouquinho, então mantenha a conversa!</p>
+  <div class="timer no-pdf" data-seconds="120"></div>
+  <p><strong>Card A — The studio.</strong> You changed the time of your Saturday class but forgot to tell one of your clients. She drove 30 minutes and found the studio closed. She's calling you, not happy.<br>Notas: <input class="long"></p>
+  <p><strong>Card B — The borrowed car.</strong> Your friend lent you her car for the weekend. You got a $75 parking ticket and only noticed it when you gave the car back.<br>Notas: <input class="long"></p>
+  <p><strong>Card C — The birthday.</strong> You completely forgot your best friend's birthday. She saw you posting stories at the beach that same day.<br>Notas: <input class="long"></p>
+  <button class="check-btn no-pdf" onclick="toggle('ans3')">Mostrar respostas</button>
+  <div id="ans3" class="answers hidden">
+    Frases úteis:<br>
+    A: "Oh no, I'm so sorry! I should've texted everyone. I must've forgotten to add you to the group message. I could've at least called you. Let me give you a free class to make up for it."<br>
+    B: "I'm so embarrassed. I shouldn't have parked there — I must've missed the sign. I should've checked before I gave the car back. Of course I'll pay for it."<br>
+    C: "I'm the worst friend ever. I should've set a reminder. I can't believe I didn't call you — I must've lost track of the days. Let me take you out to dinner this weekend!"<br><br>
+    Falas da professora pra puxar a conversa: <em>"You could've at least texted me!" · "I would've never done that to you." · "You must've known!"</em>
+  </div>
+
+
+  <h2>Parte 4 — Quick-fire round</h2>
+  <p>Complete cada frase em voz alta, <strong>o mais rápido possível</strong>, e explique em 1 ou 2 frases. Tente terminar todas antes do tempo acabar!</p>
+  <div class="timer no-pdf" data-seconds="90"></div>
+  <ol>
+    <li>Last year, I really should've…</li>
+    <li>When I first moved to the US, I couldn't have known that…</li>
+    <li>I would've never become a physical therapist if…</li>
+    <li>My worst purchase ever — I shouldn't have…</li>
+    <li>The best decision I've made this year — I could've… but I didn't.</li>
+    <li>Someone in my family must've been really surprised when…</li>
+  </ol>
+  <p>Notas: <input class="long"></p>
+  <button class="check-btn no-pdf" onclick="toggle('ans4')">Mostrar respostas</button>
+  <div id="ans4" class="answers hidden">
+    Respostas pessoais. Pontos pra professora observar:<br>
+    ✔ particípio correto depois de <em>have</em> (should've <strong>gone</strong>, could've <strong>taken</strong>, would've <strong>seen</strong>)<br>
+    ✔ pronúncia reduzida: <em>should've</em> /ˈʃʊdəv/, <em>could've</em> /ˈkʊdəv/, <em>would've</em> /ˈwʊdəv/ (nunca "should of")<br>
+    ✔ <em>If I hadn't…, I would've…</em> (e não "if I wouldn't have")<br>
+    ✔ fluência: ela usou conectores e preencheu as pausas em inglês?
+  </div>
+
+
+  <div class="footer-actions no-pdf">
+    <p class="save-note">💾 Suas respostas ficam salvas automaticamente neste navegador enquanto você digita.</p>
+    <div class="pdf-name-row">
+      <label for="studentNameInput" style="font-size:13.5px;color:#555;">Seu nome (aparece no PDF):</label>
+      <input type="text" id="studentNameInput" placeholder="Ex: Ana Beatriz">
+    </div>
+    <button class="save-btn" id="saveBtn" onclick="saveAsPDF()">💾 Salvar como PDF</button>
+  </div>
+
+</div>
+
+<script>
+  const STORAGE_KEY = 'past_modals_anabeatriz_speaking_v2';
+
+
+  // ----- daqui pra baixo é o motor: NÃO precisa mexer -----
+  function getFields(){
+    return Array.from(document.querySelectorAll('#pdfContent input, #pdfContent select, #pdfContent textarea'));
+  }
+  function saveAnswers(){
+    const data = {};
+    getFields().forEach((el, i) => {
+      if(el.type === 'radio'){ if(el.checked) data['radio_' + el.name] = el.value; }
+      else { data['f' + i] = el.value; }
+    });
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+  }
+  function loadAnswers(){
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if(!raw) return;
+    const data = JSON.parse(raw);
+    getFields().forEach((el, i) => {
+      if(el.type === 'radio'){ if(data['radio_' + el.name] === el.value) el.checked = true; }
+      else if(('f' + i) in data){ el.value = data['f' + i]; }
+    });
+  }
+  function toggle(id){ document.getElementById(id).classList.toggle('hidden'); }
+  function autoGrow(el){ el.style.height = 'auto'; el.style.height = (el.scrollHeight + 4) + 'px'; }
+  document.querySelectorAll('textarea').forEach(t => t.addEventListener('input', () => autoGrow(t)));
+
+  const nameInput = document.getElementById('studentNameInput');
+  const nameDisplay = document.getElementById('studentNameDisplay');
+  nameInput.addEventListener('input', () => {
+    nameDisplay.textContent = nameInput.value.trim() || '___________';
+  });
+
+  document.addEventListener('input', saveAnswers);
+  document.addEventListener('change', saveAnswers);
+  window.addEventListener('load', () => {
+    loadAnswers();
+    document.querySelectorAll('textarea').forEach(t => autoGrow(t));
+    nameDisplay.textContent = nameInput.value.trim() || '___________';
+  });
+
+  // ----- timers de speaking -----
+  const C = 2*Math.PI*26;
+  function fmt(s){ return Math.floor(s/60)+':'+String(s%60).padStart(2,'0'); }
+  document.querySelectorAll('.timer').forEach(tm => {
+    const base = parseInt(tm.dataset.seconds,10);
+    tm.innerHTML = '<svg viewBox="0 0 64 64"><circle class="ring-bg" cx="32" cy="32" r="26"/><circle class="ring" cx="32" cy="32" r="26"/><text class="t-num" x="32" y="37" text-anchor="middle"></text></svg>'
+      + '<div class="t-btns"><button type="button" class="t-main" data-act="start">▶ Start</button><button type="button" data-act="reset">↺ Reset</button>'
+      + '<button type="button" data-act="set" data-s="30">30s</button><button type="button" data-act="set" data-s="60">1 min</button><button type="button" data-act="set" data-s="120">2 min</button></div>';
+    tm._total = base; tm._left = base; tm._id = null; draw(tm);
+  });
+  function draw(tm){
+    const ring = tm.querySelector('.ring');
+    ring.style.strokeDasharray = C;
+    ring.style.strokeDashoffset = C*(1 - tm._left/tm._total);
+    tm.querySelector('.t-num').textContent = fmt(tm._left);
+    tm.classList.toggle('danger', tm._left <= 10 && tm._left > 0 && tm._id !== null);
+    tm.classList.toggle('done', tm._left === 0);
+  }
+  function stop(tm){ clearInterval(tm._id); tm._id = null; tm.querySelector('[data-act=start]').textContent = '▶ Start'; draw(tm); }
+  document.addEventListener('click', e => {
+    const b = e.target.closest('.timer button'); if(!b) return;
+    const tm = b.closest('.timer'); const act = b.dataset.act;
+    if(act === 'start'){
+      if(tm._id !== null){ stop(tm); return; }
+      if(tm._left === 0) tm._left = tm._total;
+      b.textContent = '❚❚ Pause';
+      tm._id = setInterval(() => { tm._left--; draw(tm); if(tm._left <= 0){ tm._left = 0; stop(tm); } }, 1000);
+      draw(tm);
+    } else if(act === 'reset'){ stop(tm); tm._left = tm._total; draw(tm); }
+    else if(act === 'set'){ stop(tm); tm._total = tm._left = parseInt(b.dataset.s,10); draw(tm); }
+  });
+
+  function saveAsPDF(){
+    const btn = document.getElementById('saveBtn');
+    btn.disabled = true; btn.textContent = '⏳ Gerando PDF...';
+    const noPdfEls = document.querySelectorAll('.no-pdf');
+    noPdfEls.forEach(el => el.style.visibility = 'hidden');
+    const el = document.getElementById('pdfContent');
+    const name = nameInput.value.trim() || 'aluno';
+    const fileName = STORAGE_KEY + '_' + name.replace(/[^a-z0-9]+/gi, '_') + '.pdf';
+    const opt = {
+      margin: [10, 10, 10, 10], filename: fileName,
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2, useCORS: true },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+      pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
+    };
+    html2pdf().set(opt).from(el).save().then(() => {
+      noPdfEls.forEach(el => el.style.visibility = ''); btn.disabled = false; btn.textContent = '💾 Salvar como PDF';
+    }).catch(() => {
+      noPdfEls.forEach(el => el.style.visibility = ''); btn.disabled = false; btn.textContent = '💾 Salvar como PDF';
+      alert('Não foi possível gerar o PDF. Tente novamente ou use Ctrl+P / Cmd+P.');
+    });
+  }
+</script>
+</body>
+</html>
